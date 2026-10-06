@@ -92,3 +92,77 @@ while (choice != 6)
             break;
     }
 }
+
+//uppgift 2
+TaskManager taskManager = new TaskManager();
+
+int taskChoice = 0;
+
+while (taskChoice != 5)
+{
+    // Show menu
+    Console.WriteLine("\n--- Uppgiftshanterare ---");
+    Console.WriteLine("1. Lägg till uppgift");
+    Console.WriteLine("2. Visa nästa uppgift");
+    Console.WriteLine("3. Visa alla uppgifter");
+    Console.WriteLine("4. Slutför uppgift");
+    Console.WriteLine("5. Avsluta");
+    Console.Write("Välj ett alternativ: ");
+
+    taskChoice = Convert.ToInt32(Console.ReadLine());
+
+    switch (taskChoice)
+    {
+        case 1:
+            // Ask the user for the task information
+            Console.Write("Ange titel: ");
+            string newTitel = Console.ReadLine()!;
+
+            Console.Write("Ange prioritet (1 = hög, 2 = medel, 3 = låg): ");
+            int newPrioritet = Convert.ToInt32(Console.ReadLine());
+
+            // Create a new task object
+            Task newTask = new Task
+            {
+                Titel = newTitel,
+                Prioritet = newPrioritet
+            };
+
+            // Add the new task
+            taskManager.AddTask(newTask);
+
+            Console.WriteLine("Uppgiften har lagts till.");
+            break;
+
+			case 2:
+			// Show the next task
+			taskManager.NextTask();
+			break;
+
+		case 3:
+			// Show all tasks
+			taskManager.ShowAllTasks();
+			break;
+
+		case 4:
+			// Ask which task the user wants to complete
+			Console.Write("Ange titeln på uppgiften du vill slutföra: ");
+			string completeTitel = Console.ReadLine()!;
+
+			// Complete the task
+			taskManager.CompleteTask(completeTitel);
+			break;
+
+		case 5:
+			// Exit the program
+			Console.WriteLine("Programmet avslutas.");
+			break;
+
+		default:
+			// Handle an invalid menu choice
+			Console.WriteLine("Ogiltigt val.");
+			break;
+
+		
+    }
+}
