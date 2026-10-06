@@ -31,4 +31,19 @@ public class TaskManager
         Console.WriteLine($"Titel: {task.Titel}, Prioritet: {task.Prioritet}");
     }
 }
+
+// Method to complete a task by title
+public void CompleteTask(string titel)
+{// Find the task with the given title
+    Task? task = Tasks.Find(t => t.Titel == titel);
+    if (task != null)
+    {
+        Tasks.Remove(task);
+        Console.WriteLine($"Uppgift slutförd: {task.Titel}");
+    }
+    else
+    {
+        Console.WriteLine("Uppgift hittades inte.");
+	}
+}
 }
