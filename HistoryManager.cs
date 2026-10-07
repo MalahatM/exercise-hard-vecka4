@@ -20,5 +20,24 @@ public class HistoryManager
 			History.RemoveAt(History.Count - 1);
 			UndoneActions.Push(lastText);
 		}
+		else
+		{
+			Console.WriteLine("Inga åtgärder att ångra.");
+		}
+	}
+
+	// Method to redo the last undone action
+	public void Redo()
+	{
+		if (UndoneActions.Count > 0)
+		{
+			string lastUndoneText = UndoneActions.Pop();
+			History.Add(lastUndoneText);
+		}
+		// If there are no undone actions, inform the user
+		else
+		{
+			Console.WriteLine("Inga åtgärder att göra om.");
+		}
 	}
 }
