@@ -165,4 +165,61 @@ while (taskChoice != 5)
 
 		
     }
+
+	//uppgift 3
+	HistoryManager historyManager = new HistoryManager();
+	// Variable for the user's menu choice
+	int historyChoice = 0;
+	// Keep showing the menu until the user chooses to exit
+	while (historyChoice != 7)
+	{
+		    Console.WriteLine("\n--- Text Editor ---");
+    Console.WriteLine("1. Add text");
+    Console.WriteLine("2. Undo");
+    Console.WriteLine("3. Redo");
+    Console.WriteLine("4. Show history");
+    Console.WriteLine("5. Show undone actions");
+    Console.WriteLine("6. Clear");
+    Console.WriteLine("7. Exit");
+    Console.Write("Enter your choice: ");
+    historyChoice = Convert.ToInt32(Console.ReadLine());
+	switch (historyChoice)
+	{
+		case 1:
+			Console.Write("Enter text to add: ");
+			string textToAdd = Console.ReadLine()!;
+			historyManager.AddText(textToAdd);
+			break;
+
+			case 2:
+			Console.WriteLine("Undoing last action...");
+			historyManager.Undo();
+			break;
+			case 3:
+			Console.WriteLine("Redoing last undone action...");
+			historyManager.Redo();
+			break;
+			case 4:
+			Console.WriteLine("History:");
+			historyManager.ShowHistory();
+			break;
+			case 5:
+			Console.WriteLine("Undone actions:");
+			historyManager.ShowUndoneActions();
+			break;
+			case 6:
+			Console.WriteLine("Clearing history and undone actions...");
+			historyManager.Clear();
+			break;
+			case 7:
+           Console.WriteLine("Exiting...");
+           break;
+
+          default:
+         Console.WriteLine("Invalid choice. Please try again.");
+          break;
+
+
+	}
+}
 }
