@@ -48,4 +48,12 @@ public void ShowHistory()
         Console.WriteLine(text);
     }
 }
+// Method to clear history and undone actions
+public void Clear()
+{
+    History.Clear();
+    UndoneActions.Clear();
+
+    Console.WriteLine("Historiken har rensats.");
+}
 }
