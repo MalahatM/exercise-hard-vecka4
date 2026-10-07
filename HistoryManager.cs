@@ -11,4 +11,14 @@ public class HistoryManager
     {
         History.Add(text);
     }
+// Method to undo/Remove the last action
+	public void Undo()
+	{
+		if (History.Count > 0)
+		{
+			string lastText = History[History.Count - 1];
+			History.RemoveAt(History.Count - 1);
+			UndoneActions.Push(lastText);
+		}
+	}
 }
