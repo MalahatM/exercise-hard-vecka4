@@ -40,4 +40,12 @@ public class HistoryManager
 			Console.WriteLine("Inga åtgärder att göra om.");
 		}
 	}
+	// Method to show the entire history
+public void ShowHistory()
+{
+    foreach (string text in History)
+    {
+        Console.WriteLine(text);
+    }
+}
 }
