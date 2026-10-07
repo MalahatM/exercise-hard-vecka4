@@ -56,4 +56,16 @@ public void Clear()
 
     Console.WriteLine("Historiken har rensats.");
 }
+// Method to show the undone actions
+public void ShowUndoneActions(){
+	if (UndoneActions.Count > 0)
+	foreach (string text in UndoneActions)
+	{
+		Console.WriteLine(text);
+	}
+	else
+	{
+		Console.WriteLine("Inga åtgärder att göra om.");
+	}
+}
 }
