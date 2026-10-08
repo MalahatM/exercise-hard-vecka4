@@ -1,6 +1,6 @@
 public class Film
 {
-    public string Titel { get; set; } = "";
-	public string Genre { get; set; } = "";
-	public int Betyg { get; set; }
+    public string Title { get; set; } = "";
+    public string Genre { get; set; } = "";
+    public int Rating { get; set; }
 }
