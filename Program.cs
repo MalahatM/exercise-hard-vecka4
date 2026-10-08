@@ -255,6 +255,12 @@ while (filmChoice != 6)
 
         Console.Write("Enter film rating (1-10): ");
         int rating = Convert.ToInt32(Console.ReadLine());
+		// Check if the rating is valid
+if (rating < 1 || rating > 10)
+{
+    Console.WriteLine("Invalid rating. Please enter a number between 1 and 10.");
+    break;
+}
 // Create a new Film object
         Film newFilm = new Film
         {
