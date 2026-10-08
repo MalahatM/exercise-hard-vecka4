@@ -9,14 +9,21 @@ public class FilmManager
     }
 
     // Method to show all films
-    public void ShowAllFilms()
+  // Method to show all films
+public void ShowAllFilms()
+{
+    if (films.Count == 0)
+    {
+        Console.WriteLine("No films found.");
+    }
+    else
     {
         foreach (Film film in films)
         {
             Console.WriteLine($"Title: {film.Title}, Genre: {film.Genre}, Rating: {film.Rating}");
         }
     }
-
+}
     // Method to search for films by genre
     public void SearchByGenre(string genre)
     {

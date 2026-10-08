@@ -223,3 +223,83 @@ while (taskChoice != 5)
 	}
 }
 }
+
+//uppgift 4
+// Create a FilmManager object
+FilmManager filmManager = new FilmManager();
+
+// Variable for the user's menu choice
+int filmChoice = 0;
+// Keep showing the menu until the user chooses to exit
+while (filmChoice != 6)
+{
+    Console.WriteLine("\n--- Mini Film Register ---");
+    Console.WriteLine("1. Add film");
+    Console.WriteLine("2. Show all films");
+    Console.WriteLine("3. Search films by genre");
+    Console.WriteLine("4. Show top 3 films");
+    Console.WriteLine("5. Remove film");
+    Console.WriteLine("6. Exit");
+
+    Console.Write("Enter your choice: ");
+    filmChoice = Convert.ToInt32(Console.ReadLine());
+	// Perform an action based on the user's choice
+	switch (filmChoice)
+{
+    case 1:
+        Console.Write("Enter film title: ");
+        string title = Console.ReadLine()!;
+
+        Console.Write("Enter film genre: ");
+        string genre = Console.ReadLine()!;
+
+        Console.Write("Enter film rating (1-10): ");
+        int rating = Convert.ToInt32(Console.ReadLine());
+// Create a new Film object
+        Film newFilm = new Film
+        {
+            Title = title,
+            Genre = genre,
+            Rating = rating
+        };
+// Add the new film to the FilmManager
+        filmManager.AddFilm(newFilm);
+        Console.WriteLine("Film added successfully.");
+        break;
+
+		case 2:
+		// Show all films
+    filmManager.ShowAllFilms();
+    break;
+	// Show films by genre
+	case 3:
+    // Search films by genre
+    Console.Write("Enter genre to search: ");
+    string searchGenre = Console.ReadLine()!;
+
+    filmManager.SearchByGenre(searchGenre);
+    break;
+	// Show top 3 films
+	case 4:
+    Console.WriteLine("Top 3 films:");
+    filmManager.ShowTop3Films();
+	break;
+	// Remove a film by title
+case 5:
+    Console.Write("Enter film title to remove: ");
+    string titleToRemove = Console.ReadLine()!;
+
+    filmManager.RemoveFilm(titleToRemove);
+    break;
+// Exit the program
+case 6:
+    Console.WriteLine("Exiting...");
+    break;
+
+	// Handle an invalid menu choice
+
+default:
+    Console.WriteLine("Invalid choice. Please try again.");
+    break;
+}
+}
